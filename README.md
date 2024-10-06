@@ -124,14 +124,13 @@ For short and time-sensitive cases, you can use the /stream endpoint to stream a
 # Stream audio
 text_to_stream = "This is a short text to be synthesized."
 voice_id = "Will"
-timestamp_type = "sentence"  # Choose from 'sentence' or 'word'
 bitrate = "192k"
 speed = 0
 pitch = 1.0
 
 # Generate audio from text
 audio_data = speech_api.stream(
-   text=text_to_stream, voice_id=voice_id, bitrate=bitrate, timestamp_type=timestamp_type, speed, pitch)
+   text=text_to_stream, voice_id=voice_id, bitrate=bitrate, speed=speed, pitch=pitch)
 
  # Play audio
 play(audio_data)
@@ -159,7 +158,7 @@ You can download audio by simply calling the save function
 ```python
   from unrealspeech import save
 
-  audio_data = sppech_api.speech('How to download your audio easily')
+  audio_data = speech_api.speech('How to download your audio easily')
 
   # you can use the save function to save the audio
   save(audio_data, "output.mp3")
